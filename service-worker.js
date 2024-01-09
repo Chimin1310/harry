@@ -22,7 +22,7 @@ self.addEventListener('install', evento=>{
  
        
             //Indicamos que la instalación espere hasta que las promesas se cumplan
-        evento.waitUntil(Promise.all([promesa, cacheInmutable]));
+        evento.waitUntil(Promise.all([promesa, CACHE_INMUTABLE]));
 });
 //Indicamos que durante el proceso de activación se borren los
 //espacios de cache estatico de versiones pasadas
@@ -62,7 +62,7 @@ self.addEventListener('fetch', evento =>{
                             //Mandamos llamar la limpieza al cargar un nuevo archivo
                             //estamos indicando que se limpiará el cache dinamico y que 
                             //solo debe haber 2 archivos
-                            limpiarCache(CACHE_DINAMICO,2);
+                            limpiarCache(CACHE_DINAMICO,20);
                         })
                     //se retorna el archivo recuperado para visualizar la página
                     return resWeb.clone();  
